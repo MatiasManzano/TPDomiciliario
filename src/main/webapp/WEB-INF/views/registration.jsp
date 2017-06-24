@@ -16,7 +16,7 @@
     <div class="generic-container">
     <div class="well lead">Alta de transportes</div>
     <form:form method="POST" modelAttribute="transporte" class="form-horizontal">
-        <form:input type="hidden" path="idTransporte" id="idTransporte"/> <!-- cambiar por idTransporte -->
+        <form:input type="hidden" path="idTransporte" id="idTransporte"/>
          
         <div class="row">
             <div class="form-group col-md-12">
@@ -121,14 +121,14 @@ input-sm" />
             <div class="form-actions floatRight">
                 <c:choose>
                     <c:when test="${edit}">
-                        <input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a
+                        <input type="submit" value="Modificar" class="btn btn-primary btn-sm"/> or <a
  
-href="<c:url value='/list' />">Cancel</a>
+href="<c:url value='/list' />">Cancelar</a>
                     </c:when>
                     <c:otherwise>
-                        <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a
+                        <input type="submit" value="Aceptar" class="btn btn-primary btn-sm"/> or <a
  
-href="<c:url value='/list' />">Cancel</a>
+href="<c:url value='/list' />">Cancelar</a>
                     </c:otherwise>
                 </c:choose>
             </div>
