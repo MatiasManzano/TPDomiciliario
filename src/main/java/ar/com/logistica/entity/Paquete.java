@@ -27,7 +27,7 @@ public class Paquete {
 	@JoinColumn(name = "ID_TIPO_PAQUETE")
 	private TipoPaquete tipoPaquete;
 	@Column(name = "NRO_CERTIFICACION")
-	private int nroCertificacion;
+	private Integer nroCertificacion;
 
 	public long getIdPaquete() {
 		return idPaquete;
@@ -45,7 +45,7 @@ public class Paquete {
 		return tipoPaquete;
 	}
 
-	public int getNroCertificacion() {
+	public Integer getNroCertificacion() {
 		return nroCertificacion;
 	}
 
@@ -65,7 +65,7 @@ public class Paquete {
 		this.tipoPaquete = tipoPaquete;
 	}
 
-	public void setNroCertificacion(int nroCertificacion) {
+	public void setNroCertificacion(Integer nroCertificacion) {
 		this.nroCertificacion = nroCertificacion;
 	}
 

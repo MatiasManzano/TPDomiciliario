@@ -8,6 +8,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import ar.com.logistica.entity.Direccion;
 import ar.com.logistica.entity.Envio;
 import ar.com.logistica.entity.Transporte;
 
@@ -16,9 +17,7 @@ public class EnvioDAOImpl extends AbstractDao<Long, Envio> implements EnvioDAO{
 
 	@Override
 	public Envio findByNroEnvio(long nroEnvio) {
-		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.eq("nroEnvio", nroEnvio));
-		Envio envio = (Envio) criteria.uniqueResult();
+		Envio envio = getByKey(nroEnvio);
 		if (envio != null) {
 			Hibernate.initialize(envio.getDestinatario());
 		}
@@ -42,8 +41,9 @@ public class EnvioDAOImpl extends AbstractDao<Long, Envio> implements EnvioDAO{
 
 	@Override
 	public List<Envio> findAllEnvios() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nroEnvio"));
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("numeroEnvio"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		@SuppressWarnings("unchecked")
 		List<Envio> envios = (List<Envio>) criteria.list();
 		return envios;
 	}
