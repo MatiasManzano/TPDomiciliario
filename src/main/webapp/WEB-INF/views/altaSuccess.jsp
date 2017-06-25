@@ -16,7 +16,7 @@
     </div>
      
     <span class="well floatRight">
-        Go to <a href="<c:url value='/listaDirecciones' />">Direcciones</a>
+        Volver a  <a href="<c:url value='/listaDirecciones' />">Direcciones</a>
     </span>
 </div>
 </body>

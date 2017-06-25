@@ -16,7 +16,7 @@ public interface DireccionService {
 
 	public List<Direccion> findAllDirecciones();
 	
-	public void updatePais(Direccion direccion);
+	public void updateDireccion(Direccion direccion);
 
 	public boolean isCalleDireccionUnique(Long idDireccion, String calle);
 

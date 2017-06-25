@@ -22,17 +22,10 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="calle">Calle</label>
                 <div class="col-md-7">
-                    <c:choose>
-                        <c:when test="${edit}">
-                            <form:input type="text" path="calle" id="calle" class="form-control input-sm" disabled="true"/>
-                        </c:when>
-                        <c:otherwise>
-                            <form:input type="text" path="calle" id="calle" class="form-control input-sm" />
-                            <div class="has-error">
-                                <form:errors path="calle" class="help-inline"/>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
+                    <form:input type="text" path="calle" id="calle" class="form-control input-sm" />
+                    <div class="has-error">
+                        <form:errors path="calle" class="help-inline"/>
+                    </div>
                 </div>
             </div>
         </div>

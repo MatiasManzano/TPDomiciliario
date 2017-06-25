@@ -40,12 +40,12 @@
                         <td>${direccion.localidad.nombreLocalidad}</td>
                         <td>${direccion.localidad.provincia.nombreProvincia}</td>
                         <td>${direccion.localidad.provincia.pais.nombrePais}</td>
-                        <td><a href="<c:url value='/edit-user-${direccion.idDireccion}' />" class="btn btn-success 
+                        <td><a href="<c:url value='/edit-direccion-${direccion.idDireccion}' />" class="btn btn-success 
  
-custom-width">editar</a></td>
-                        <td><a href="<c:url value='/delete-user-${direccion.idDireccion}' />" class="btn btn-danger 
+custom-width">Editar</a></td>
+                        <td><a href="<c:url value='/delete-direccion-${direccion.calle}' />" class="btn btn-danger 
  
-custom-width">eliminar</a></td>
+custom-width">Eliminar</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

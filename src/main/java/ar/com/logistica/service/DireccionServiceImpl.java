@@ -47,7 +47,7 @@ public class DireccionServiceImpl implements DireccionService{
 	}
 
 	@Override
-	public void updatePais(Direccion direccion) {
+	public void updateDireccion(Direccion direccion) {
 		Direccion entity = direccionDAO.findById(direccion.getIdDireccion());
 		if (entity != null) {
 			entity.setCalle(direccion.getCalle());

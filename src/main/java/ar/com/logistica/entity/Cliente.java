@@ -70,7 +70,7 @@ public class Cliente {
 		return mail;
 	}
 
-	private void setIdCliente(long idCliente) {
+	public void setIdCliente(long idCliente) {
 		this.idCliente = idCliente;
 	}
 
