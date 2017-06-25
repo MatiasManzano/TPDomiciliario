@@ -36,7 +36,7 @@ public class Pais {
 		return provincias;
 	}
 
-	private void setIdPais(long idPais) {
+	public void setIdPais(long idPais) {
 		this.idPais = idPais;
 	}
 

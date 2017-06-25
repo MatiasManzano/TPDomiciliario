@@ -45,7 +45,7 @@ public class Localidad {
 		return direcciones;
 	}
 
-	private void setIdLocalidad(long idLocalidad) {
+	public void setIdLocalidad(long idLocalidad) {
 		this.idLocalidad = idLocalidad;
 	}
 

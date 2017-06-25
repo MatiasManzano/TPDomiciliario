@@ -59,7 +59,7 @@ public class Direccion {
 		return localidad;
 	}
 
-	private void setIdDireccion(long idDireccion) {
+	public void setIdDireccion(long idDireccion) {
 		this.idDireccion = idDireccion;
 	}
 

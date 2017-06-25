@@ -10,11 +10,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CATEGORIAS_PAQUETES")
 public class CategoriaPaquete {
-	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_CATEGORIA_PAQUETE")
 	private long idCategoriaPaquete;
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
+
+	public long getIdCategoriaPaquete() {
+		return idCategoriaPaquete;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setIdCategoriaPaquete(long idCategoriaPaquete) {
+		this.idCategoriaPaquete = idCategoriaPaquete;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
 }

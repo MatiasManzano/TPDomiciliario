@@ -55,7 +55,7 @@ public class Transporte {
 		return anio;
 	}
 
-	private void setIdTransporte(long idTransporte) {
+	public void setIdTransporte(long idTransporte) {
 		this.idTransporte = idTransporte;
 	}
 

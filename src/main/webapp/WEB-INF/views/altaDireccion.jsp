@@ -94,7 +94,7 @@
 							<form:options items="${localidades}" itemValue="idLocalidad"
 								itemLabel="nombreLocalidad" class="form-control input-sm" />
 						</form:select>
-						
+						<div class="has-error">
 							<form:errors path="localidad" class="help-inline" />
 						</div>
 					</div>
