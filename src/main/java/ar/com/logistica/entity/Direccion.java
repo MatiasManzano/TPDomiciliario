@@ -22,7 +22,7 @@ public class Direccion {
 	@Column(name = "NUMERO")
 	private int numero;
 	@Column(name = "PISO")
-	private int piso;
+	private Integer piso;
 	@Column(name = "DEPTO")
 	private String departamento;
 	@Column(name = "CP")
@@ -43,7 +43,7 @@ public class Direccion {
 		return numero;
 	}
 
-	public int getPiso() {
+	public Integer getPiso() {
 		return piso;
 	}
 
@@ -71,7 +71,7 @@ public class Direccion {
 		this.numero = numero;
 	}
 
-	public void setPiso(int piso) {
+	public void setPiso(Integer piso) {
 		this.piso = piso;
 	}
 

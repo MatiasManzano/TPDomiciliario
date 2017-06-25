@@ -33,7 +33,7 @@ public class Provincia {
 		return idProvincia;
 	}
 
-	public String getNombreProvinia() {
+	public String getNombreProvincia() {
 		return nombreProvincia;
 	}
 
@@ -45,12 +45,12 @@ public class Provincia {
 		return localidades;
 	}
 
-	private void setIdProvincia(long idProvincia) {
+	public void setIdProvincia(long idProvincia) {
 		this.idProvincia = idProvincia;
 	}
 
-	public void setNombreProvinia(String nombreProvinia) {
-		this.nombreProvincia = nombreProvinia;
+	public void setNombreProvincia(String nombreProvincia) {
+		this.nombreProvincia = nombreProvincia;
 	}
 
 	public void setPais(Pais pais) {

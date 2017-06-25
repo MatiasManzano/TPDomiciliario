@@ -51,7 +51,7 @@ public class LocalidadDAOImpl extends AbstractDao<Long, Localidad> implements Lo
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Localidad> findAllLocalidades() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombrePais"));
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombreLocalidad"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return (List<Localidad>) criteria.list();
 	}

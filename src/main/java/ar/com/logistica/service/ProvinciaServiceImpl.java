@@ -49,7 +49,7 @@ public class ProvinciaServiceImpl implements ProvinciaService{
 	public void updateProvincia(Provincia provincia) {
 		Provincia entity = provinciaDAO.findById(provincia.getIdProvincia());
         if(entity!=null){
-            entity.setNombreProvinia(provincia.getNombreProvinia());
+            entity.setNombreProvincia(provincia.getNombreProvincia());
             entity.setPais(provincia.getPais());
             entity.setLocalidades(provincia.getLocalidades());
         }		
