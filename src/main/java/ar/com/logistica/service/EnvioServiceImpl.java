@@ -18,8 +18,8 @@ public class EnvioServiceImpl implements EnvioService {
 	EnvioDAO envioDAO;
 
 	@Override
-	public Envio findByNroEnvio(long nroEnvio) {
-		return envioDAO.findByNroEnvio(nroEnvio);
+	public Envio findByNroEnvio(long numeroEnvio) {
+		return envioDAO.findByNroEnvio(numeroEnvio);
 	}
 
 	@Override
@@ -29,8 +29,8 @@ public class EnvioServiceImpl implements EnvioService {
 	}
 
 	@Override
-	public void deleteByNroEnvio(long nroEnvio) {
-		envioDAO.deleteByNroEnvio(nroEnvio);
+	public void deleteByNroEnvio(long numeroEnvio) {
+		envioDAO.deleteByNroEnvio(numeroEnvio);
 
 	}
 
@@ -43,25 +43,29 @@ public class EnvioServiceImpl implements EnvioService {
 	public void updateEnvio(Envio envio) {
 		Envio entity = envioDAO.findByNroEnvio(envio.getNumeroEnvio());
 		if (entity != null) {
-			entity.setDireccionOrigen(envio.getDireccionOrigen());
-			entity.setDireccionDestino(envio.getDireccionDestino());
+			entity.setCalle(envio.getCalle());
+			entity.setNumero(envio.getNumero());
+			entity.setPiso(envio.getPiso());
+			entity.setDepartamento(envio.getDepartamento());
+			entity.setCodigoPostal(envio.getCodigoPostal());
+			entity.setLocalidad(envio.getLocalidad());
 			entity.setPaquete(envio.getPaquete());
+			entity.setCategoriaPaquete(envio.getCategoriaPaquete());
+			entity.setTipoPaquete(envio.getTipoPaquete());
 			entity.setPeso(envio.getPeso());
 			entity.setCantidad(envio.getCantidad());
 			entity.setTransporte(envio.getTransporte());
 			entity.setRemitente(envio.getRemitente());
 			entity.setDestinatario(envio.getDestinatario());
-			entity.setFechaEnvio(envio.getFechaEnvio());
-			entity.setFechaEntrega(envio.getFechaEntrega());
 			entity.setImporte(envio.getImporte());
 		}
 
 	}
 
 	@Override
-	public boolean isNroEnvioUnique(Long nroEnvio) {
-		Envio envio = findByNroEnvio(nroEnvio);
-		return (envio == null || ((nroEnvio != null) && (envio.getNumeroEnvio() == nroEnvio)));
+	public boolean isNroEnvioUnique(Long numeroEnvio) {
+		Envio envio = findByNroEnvio(numeroEnvio);
+		return (envio == null || ((numeroEnvio != null) && (envio.getNumeroEnvio() == numeroEnvio)));
 	}
 
 }

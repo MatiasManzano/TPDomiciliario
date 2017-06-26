@@ -16,8 +16,8 @@ import ar.com.logistica.entity.Transporte;
 public class EnvioDAOImpl extends AbstractDao<Long, Envio> implements EnvioDAO{
 
 	@Override
-	public Envio findByNroEnvio(long nroEnvio) {
-		Envio envio = getByKey(nroEnvio);
+	public Envio findByNroEnvio(long numeroEnvio) {
+		Envio envio = getByKey(numeroEnvio);
 		if (envio != null) {
 			Hibernate.initialize(envio.getDestinatario());
 		}
@@ -31,9 +31,9 @@ public class EnvioDAOImpl extends AbstractDao<Long, Envio> implements EnvioDAO{
 	}
 
 	@Override
-	public void deleteByNroEnvio(long nroEnvio) {
+	public void deleteByNroEnvio(long numeroEnvio) {
 		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.eq("nroEnvio", nroEnvio));
+		criteria.add(Restrictions.eq("numeroEnvio", numeroEnvio));
 		Envio envio = (Envio) criteria.uniqueResult();
 		delete(envio);
 		

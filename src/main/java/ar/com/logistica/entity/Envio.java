@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ENVIOS")
@@ -18,51 +20,82 @@ public class Envio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "NRO_ENVIO")
 	private long numeroEnvio;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DIRECCION_ORIGEN")
-	private Direccion direccionOrigen;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DIRECCION_DESTINO")
-	private Direccion direccionDestino;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "PAQUETE")
-	private Paquete paquete;
+	@Column(name = "CALLE")
+	private String calle;
+	@Column(name = "NUMERO")
+	private int numero;
+	@Column(name = "PISO")
+	private int piso;
+	@Column(name = "DEPARTAMENTO")
+	private String departamento;
+	@Column(name = "CP")
+	private String codigoPostal;
+	@OneToOne
+	@JoinColumn(name = "ID_LOCALIDAD")
+	private Localidad localidad;
+	@Column(name = "PAQUETE")
+	private String paquete;
+	@OneToOne
+	@JoinColumn(name = "ID_TIPO_PAQUETE")
+	private TipoPaquete tipoPaquete;
+	@OneToOne
+	@JoinColumn(name = "ID_CATEGORIA_PAQUETE")
+	private CategoriaPaquete categoriaPaquete;
 	@Column(name = "PESO")
-	private String peso;
+	private double peso;
 	@Column(name = "CANTIDAD")
 	private int cantidad;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "TRANSPORTE")
 	private Transporte transporte;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "REMITENTE")
-	private Cliente remitente;
+	@Column(name = "REMITENTE")
+	private String remitente;
 	@Column(name = "DESTINATARIO")
 	private String destinatario;
-	@Column(name = "FECHA_ENVIO")
-	private String fechaEnvio;
-	@Column(name = "FECHA_ENTREGA")
-	private String fechaEntrega;
 	@Column(name = "IMPORTE")
-	private String importe;
+	private double importe;
 
 	public long getNumeroEnvio() {
 		return numeroEnvio;
 	}
 
-	public Direccion getDireccionOrigen() {
-		return direccionOrigen;
+	public String getCalle() {
+		return calle;
 	}
 
-	public Direccion getDireccionDestino() {
-		return direccionDestino;
+	public int getNumero() {
+		return numero;
 	}
 
-	public Paquete getPaquete() {
+	public int getPiso() {
+		return piso;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public Localidad getLocalidad() {
+		return localidad;
+	}
+
+	public String getPaquete() {
 		return paquete;
 	}
 
-	public String getPeso() {
+	public TipoPaquete getTipoPaquete() {
+		return tipoPaquete;
+	}
+
+	public CategoriaPaquete getCategoriaPaquete() {
+		return categoriaPaquete;
+	}
+
+	public double getPeso() {
 		return peso;
 	}
 
@@ -74,7 +107,7 @@ public class Envio {
 		return transporte;
 	}
 
-	public Cliente getRemitente() {
+	public String getRemitente() {
 		return remitente;
 	}
 
@@ -82,15 +115,7 @@ public class Envio {
 		return destinatario;
 	}
 
-	public String getFechaEnvio() {
-		return fechaEnvio;
-	}
-
-	public String getFechaEntrega() {
-		return fechaEntrega;
-	}
-
-	public String getImporte() {
+	public double getImporte() {
 		return importe;
 	}
 
@@ -98,19 +123,43 @@ public class Envio {
 		this.numeroEnvio = numeroEnvio;
 	}
 
-	public void setDireccionOrigen(Direccion direccionOrigen) {
-		this.direccionOrigen = direccionOrigen;
+	public void setCalle(String calle) {
+		this.calle = calle;
 	}
 
-	public void setDireccionDestino(Direccion direccionDestino) {
-		this.direccionDestino = direccionDestino;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
-	public void setPaquete(Paquete paquete) {
+	public void setPiso(int piso) {
+		this.piso = piso;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
+	}
+
+	public void setPaquete(String paquete) {
 		this.paquete = paquete;
 	}
 
-	public void setPeso(String peso) {
+	public void setTipoPaquete(TipoPaquete tipoPaquete) {
+		this.tipoPaquete = tipoPaquete;
+	}
+
+	public void setCategoriaPaquete(CategoriaPaquete categoriaPaquete) {
+		this.categoriaPaquete = categoriaPaquete;
+	}
+
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
@@ -122,7 +171,7 @@ public class Envio {
 		this.transporte = transporte;
 	}
 
-	public void setRemitente(Cliente remitente) {
+	public void setRemitente(String remitente) {
 		this.remitente = remitente;
 	}
 
@@ -130,15 +179,7 @@ public class Envio {
 		this.destinatario = destinatario;
 	}
 
-	public void setFechaEnvio(String fechaEnvio) {
-		this.fechaEnvio = fechaEnvio;
-	}
-
-	public void setFechaEntrega(String fechaEntrega) {
-		this.fechaEntrega = fechaEntrega;
-	}
-
-	public void setImporte(String importe) {
+	public void setImporte(double importe) {
 		this.importe = importe;
 	}
 

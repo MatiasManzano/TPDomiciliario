@@ -6,16 +6,16 @@ import ar.com.logistica.entity.Envio;
 
 public interface EnvioService {
 
-	public Envio findByNroEnvio(long nroEnvio);
+	public Envio findByNroEnvio(long numeroEnvio);
 
 	public void save(Envio envio);
 
-	public void deleteByNroEnvio(long nroEnvio);
+	public void deleteByNroEnvio(long numeroEnvio);
 
 	public List<Envio> findAllEnvios();
 
 	public void updateEnvio(Envio envio);
 
-	public boolean isNroEnvioUnique(Long nroEnvio);
+	public boolean isNroEnvioUnique(Long numeroEnvio);
 
 }
