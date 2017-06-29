@@ -25,7 +25,7 @@ public class Envio {
 	@Column(name = "NUMERO")
 	private int numero;
 	@Column(name = "PISO")
-	private int piso;
+	private Integer piso;
 	@Column(name = "DEPARTAMENTO")
 	private String departamento;
 	@Column(name = "CP")
@@ -54,6 +54,8 @@ public class Envio {
 	private String destinatario;
 	@Column(name = "IMPORTE")
 	private double importe;
+	@Column(name = "NRO_CERTIFICACION")
+	private Integer nroCertificacion;
 
 	public long getNumeroEnvio() {
 		return numeroEnvio;
@@ -67,7 +69,7 @@ public class Envio {
 		return numero;
 	}
 
-	public int getPiso() {
+	public Integer getPiso() {
 		return piso;
 	}
 
@@ -119,6 +121,10 @@ public class Envio {
 		return importe;
 	}
 
+	public Integer getNroCertificacion() {
+		return nroCertificacion;
+	}
+
 	public void setNumeroEnvio(long numeroEnvio) {
 		this.numeroEnvio = numeroEnvio;
 	}
@@ -131,7 +137,7 @@ public class Envio {
 		this.numero = numero;
 	}
 
-	public void setPiso(int piso) {
+	public void setPiso(Integer piso) {
 		this.piso = piso;
 	}
 
@@ -181,6 +187,10 @@ public class Envio {
 
 	public void setImporte(double importe) {
 		this.importe = importe;
+	}
+
+	public void setNroCertificacion(Integer nroCertificacion) {
+		this.nroCertificacion = nroCertificacion;
 	}
 
 }

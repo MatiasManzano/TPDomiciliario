@@ -26,8 +26,6 @@ public class Paquete {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_TIPO_PAQUETE")
 	private TipoPaquete tipoPaquete;
-	@Column(name = "NRO_CERTIFICACION")
-	private Integer nroCertificacion;
 
 	public long getIdPaquete() {
 		return idPaquete;
@@ -45,10 +43,6 @@ public class Paquete {
 		return tipoPaquete;
 	}
 
-	public Integer getNroCertificacion() {
-		return nroCertificacion;
-	}
-
 	public void setIdPaquete(long idPaquete) {
 		this.idPaquete = idPaquete;
 	}
@@ -63,10 +57,6 @@ public class Paquete {
 
 	public void setTipoPaquete(TipoPaquete tipoPaquete) {
 		this.tipoPaquete = tipoPaquete;
-	}
-
-	public void setNroCertificacion(Integer nroCertificacion) {
-		this.nroCertificacion = nroCertificacion;
 	}
 
 }

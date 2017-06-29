@@ -58,6 +58,7 @@ public class EnvioServiceImpl implements EnvioService {
 			entity.setRemitente(envio.getRemitente());
 			entity.setDestinatario(envio.getDestinatario());
 			entity.setImporte(envio.getImporte());
+			entity.setNroCertificacion(envio.getNroCertificacion());
 		}
 
 	}

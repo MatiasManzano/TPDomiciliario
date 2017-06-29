@@ -44,7 +44,6 @@ public class PaqueteServiceImpl implements PaqueteService {
 			entity.setDescripcion(paquete.getDescripcion());
 			entity.setCategoriaPaquete(paquete.getCategoriaPaquete());
 			entity.setTipoPaquete(paquete.getTipoPaquete());
-			entity.setNroCertificacion(paquete.getNroCertificacion());
 		}
 
 	}

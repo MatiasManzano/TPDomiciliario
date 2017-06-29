@@ -14,7 +14,7 @@
  
 <body>
  
-    <div class="generic-container">
+    <div class="generic-container" overflow="auto">
     <div class="well lead">Nuevo plan de Envio</div>
     
     <form:form method="POST" modelAttribute="envio" class="form-horizontal" id="envio">
@@ -83,9 +83,9 @@
 			<div class="row">
 				<div class="form-group col-md-12">
 					<label class="col-md-3 control-lable" for="localidad">Ciudad</label>
-					<div class="col-md-7">
+					<div class="col-md-2">
 
-						<form:select path="localidad.idLocalidad">
+						<form:select class="form-control" path="localidad.idLocalidad">
 							<form:options items="${localidades}" itemValue="idLocalidad"
  								itemLabel="nombreLocalidad" class="form-control input-sm" /> 
 						</form:select> 
@@ -107,13 +107,42 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+				<div class="form-group col-md-12">
+					<label class="col-md-3 control-lable" for="categoriaPaquete">Categoria</label>
+					<div class="col-md-2">
+
+						<form:select class="form-control" path="categoriaPaquete.idCategoriaPaquete">
+							<form:options items="${categoriasPaquete}" itemValue="idCategoriaPaquete"
+ 								itemLabel="descripcion" class="form-control input-sm" /> 
+						</form:select> 
+						<div class="has-error">
+							<form:errors path="categoriaPaquete" class="help-inline" /> 
+					</div> 
+					</div>
+				</div> 
+			</div>
+
+			<div class="row" id="nroCertificacion">
+				<div class="form-group col-md-12">
+				<label class="col-md-3 control-lable" for="nroCertificacion">N° Certificacíon</label>
+					<div class="col-md-7">
+						<form:input type="text" path="nroCertificacion" id="nroCertificacion"
+							class="form-control input-sm" />
+						<div class="has-error">
+							<form:errors path="nroCertificacion" class="help-inline" />
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="row">
 				<div class="form-group col-md-12">
 					<label class="col-md-3 control-lable" for="tipoPaquete">Tipo</label>
-					<div class="col-md-7">
+					<div class="col-md-2">
 
-						<form:select path="tipoPaquete.idTipoPaquete">
+						<form:select class="form-control" path="tipoPaquete.idTipoPaquete">
 							<form:options items="${tiposPaquete}" itemValue="idTipoPaquete"
 								itemLabel="descripcion" class="form-control input-sm" />
 						</form:select>
@@ -124,26 +153,11 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="categoriaPaquete">Categoria</label>
-					<div class="col-md-7">
-
-						<form:select path="categoriaPaquete.idCategoriaPaquete">
-							<form:options items="${categoriasPaquete}" itemValue="idCategoriaPaquete"
- 								itemLabel="descripcion" class="form-control input-sm" /> 
-						</form:select> 
-						<div class="has-error">
-							<form:errors path="categoriaPaquete" class="help-inline" /> 
-					</div> 
-					</div>
-				</div> 
-			</div> 
 			
          <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="peso">Peso</label>
-                <div class="col-md-7">
+                <div class="col-md-2">
                     <form:input type="text" path="peso" id="peso" class="form-control input-sm" />
                     <div class="has-error">
                         <form:errors path="peso" class="help-inline"/>
@@ -167,9 +181,9 @@
          <div class="row">
 				<div class="form-group col-md-12">
 					<label class="col-md-3 control-lable" for="transporte">Transporte</label>
-					<div class="col-md-7">
+					<div class="col-md-2">
 
-						<form:select path="transporte.idTransporte">
+						<form:select class="form-control" path="transporte.idTransporte">
 							<form:options items="${transportes}" itemValue="idTransporte"
  								itemLabel="tipo" class="form-control input-sm" /> 
 						</form:select> 
@@ -204,21 +218,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="importe">Importe</label>
-					<div class="col-md-7">
-						<form:input type="text" path="importe" id="importe"
-							class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="importe" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-			
+			</div>			
 			
 			<div class="row">
             <div class="form-actions floatRight">
