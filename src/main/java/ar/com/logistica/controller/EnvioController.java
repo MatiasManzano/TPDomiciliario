@@ -5,12 +5,15 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ar.com.logistica.entity.CategoriaPaquete;
 import ar.com.logistica.entity.Envio;
@@ -93,6 +96,21 @@ public class EnvioController {
 
 		return "altaSuccess";
 	}
+	
+	@RequestMapping(value = { "/nuevoEnvio" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Envio calcularImporte (@RequestParam("ciudad") String idCiudad){
+		
+		Importe importe = new Importe();
+		Localidad localidad = new Localidad();
+		localidad.setIdLocalidad(new Long (idCiudad));
+		Envio envio = new Envio();
+
+		importe = importeService.findByLocalidad(localidad);
+		envio.setImporte(importeService.importeTotal(importe));
+		
+		return envio;
+	}
 
 	@RequestMapping(value = { "/edit-envio-{numeroEnvio}" }, method = RequestMethod.GET)
 	public String editEnvio(@PathVariable long numeroEnvio, ModelMap model) {
@@ -108,6 +126,7 @@ public class EnvioController {
 		model.addAttribute("categoriasPaquete", categoriasPaquete);
 		model.addAttribute("tiposPaquete", tiposPaquete);
 		model.addAttribute("transportes", transportes);
+		
 		model.addAttribute("edit", true);
 
 		return "altaEnvio";

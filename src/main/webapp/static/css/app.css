@@ -12,6 +12,15 @@ body, .form-control {
 	margin-right: 18px;
 }
 
+.floatLeft {
+	float: left;
+	margin-left: 18px;
+}
+
+.alert{
+	display:none;
+}
+
 .has-error {
 	color: red;
 }
@@ -25,7 +34,7 @@ body, .form-control {
 	text-align:right;
 }
 
-#nroCertificacion{
+#divNroCertificacion{
 	display:none;
 }
 

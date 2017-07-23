@@ -9,7 +9,8 @@
     <title>Nuevo plan de Envio</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="static/js/altaEnvio.js"></script>
 </head>
  
 <body>
@@ -85,7 +86,7 @@
 					<label class="col-md-3 control-lable" for="localidad">Ciudad</label>
 					<div class="col-md-2">
 
-						<form:select class="form-control" path="localidad.idLocalidad">
+						<form:select class="form-control" path="localidad.idLocalidad" id="ciudad">
 							<form:options items="${localidades}" itemValue="idLocalidad"
  								itemLabel="nombreLocalidad" class="form-control input-sm" /> 
 						</form:select> 
@@ -124,30 +125,31 @@
 				</div> 
 			</div>
 
-			<div class="row" id="nroCertificacion">
-				<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="nroCertificacion">N° Certificacíon</label>
-					<div class="col-md-7">
-						<form:input type="text" path="nroCertificacion" id="nroCertificacion"
-							class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="nroCertificacion" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div class="row">
 				<div class="form-group col-md-12">
 					<label class="col-md-3 control-lable" for="tipoPaquete">Tipo</label>
 					<div class="col-md-2">
 
-						<form:select class="form-control" path="tipoPaquete.idTipoPaquete">
+						<form:select id="tipo" class="form-control" path="tipoPaquete.idTipoPaquete">
 							<form:options items="${tiposPaquete}" itemValue="idTipoPaquete"
 								itemLabel="descripcion" class="form-control input-sm" />
 						</form:select>
 						<div class="has-error">
 							<form:errors path="tipoPaquete" class="help-inline" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="row" id="divNroCertificacion">
+				<div class="form-group col-md-12">
+				<label class="col-md-3 control-lable" for="nroCertificacion">N° de Certificacíon de Salubridad</label>
+					<div class="col-md-7">
+						<form:input type="text" path="nroCertificacion"
+							class="form-control input-sm" />
+						<div class="has-error">
+							<form:errors path="nroCertificacion" class="help-inline" />
 						</div>
 					</div>
 				</div>
@@ -221,7 +223,9 @@
 			</div>			
 			
 			<div class="row">
+			<div class="alert alert-danger lead floatLeft">El envio cuesta:$ <spam id="importe">${envio.importe}</spam> (gastos extras incluidos)</div>
             <div class="form-actions floatRight">
+            	<input type="button" value="Ver importe" id="verimporte" class="btn btn-primary btn-sm"/>
                 <c:choose>
                     <c:when test="${edit}">
                         <input type="submit" value="Modificar" class="btn btn-primary btn-sm"/> or <a
